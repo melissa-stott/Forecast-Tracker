@@ -28,7 +28,7 @@ $.ajax({
     var maxTemp = $('<p></p>')
     var dayIcon = $('<img>')
     // extendedDay.attr('src',response.daily[0].dt);
-    extendedDay.text(Date(JSON.stringify(response.daily[0].dt)));
+    extendedDay.text(moment(Date(JSON.stringify(response.daily[0].dt))).format('MMMM Do'));
     minTemp.text('Low Temp: ' + parseInt(response.daily[0].temp.min));
     maxTemp.text('High Temp: ' + parseInt(response.daily[0].temp.max));
     dayIcon.attr('src', dailyIcon);
