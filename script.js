@@ -1,23 +1,56 @@
-var cityState = "phoenix&arizona";
-var currentForecast = "https://api.openweathermap.org/data/2.5/weather?q=" + cityState +"&units=imperial&appid=063d3ebdbea1386f4567f346bec8d092";
+var inputBox = $('<div class="userInput"></div>');
+var introText = $('<p class="howToStart">Please enter a city and state, separated by a comma.</p>');
+var userInput = $('<input class="input" type="text" placeholder="Portland, Oregon"></input>');
+var userSubmit = $('<button>Submit</button>');
 
-console.log(currentForecast);
+$('.container').append(inputBox);
+$('.panel-heading').append(introText);
+$('.panel-block').append(userInput);
+$('.panel-block').append(userSubmit);
+
+$(userSubmit).on('click', function(evt) {
+    var cityState = $(userInput).val();
+    var currentForecast = "https://api.openweathermap.org/data/2.5/weather?q=" + cityState +"&units=imperial&appid=063d3ebdbea1386f4567f346bec8d092";
+    localStorage.setItem('userSubmit', currentForecast);
 
 
+
+
+// console.log(currentForecast);
+
+// This is the beginning of the code that allows me to access the current forecast based on City/State
 $.ajax({
     url: currentForecast,
     method: "GET"
 }).then(function(responseCurrent){
-    console.log(responseCurrent);
-    // console.log(responseCurrent.coord.lon);
-    // console.log(responseCurrent.coord.lat);
-    console.log(responseCurrent.main.temp);
-    console.log(responseCurrent.main.humidity);
-    console.log(responseCurrent.wind.speed);
-    // console.log(response.daily[0].uvi);
+    // console.log(responseCurrent);
+    const unixTimeCurrent = responseCurrent.dt;
+    var weatherIcon = responseCurrent.weather[0].icon;
+    var todaysIcon = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
+    console.log(todaysIcon);
+    
+    var currentDay = $('<div class="dailyOutlook"></div>');
+    var currentTemp = $('<p></p>');
+    var currentHumidity = $('<p></p>');
+    var currentWind = $('<p></p>');
+    var currentIcon = $('<img>');
+
+    currentDay.text(cityState + ' ' + moment.unix(unixTimeCurrent).format('(MM/DD/YYYY)'));
+    currentTemp.text('Current Temp: ' + (parseInt(responseCurrent.main.temp)));
+    currentHumidity.text('Current Humidity: ' + (parseInt(responseCurrent.main.humidity)));
+    currentWind.text('Wind Speed: ' + (parseInt(responseCurrent.wind.speed)));
+    currentIcon.attr('src', todaysIcon);
+
+
+    $('body').append(currentDay);
+    $('.dailyOutlook').append(currentIcon);
+    $('.dailyOutlook').append(currentTemp);
+    $('.dailyOutlook').append(currentHumidity);
+    $('.dailyOutlook').append(currentWind);
 
 
 
+// This is the beginning of the code that prints the 5-day forecast to the page, pulling the lat/lon from current forecast results
 var locationLon = (responseCurrent.coord.lon);
 var locationLat = (responseCurrent.coord.lat);
 console.log(locationLon);
@@ -25,25 +58,26 @@ console.log(locationLat);
 
 var fiveDay = "https://api.openweathermap.org/data/2.5/onecall?lat=" + locationLat + "&lon=" + locationLon + "&exclude=minutely,hourly,alerts&units=imperial&appid=063d3ebdbea1386f4567f346bec8d092";
 console.log(fiveDay);
-var dailyIcon = "http://openweathermap.org/img/wn/10d@2x.png"
+var dailyIcon = "http://openweathermap.org/img/wn/10d@2x.png";
 
 
 $.ajax({
     url: fiveDay,
     method: "GET"
 }).then(function(response){
-    const unixTimeOne = response.daily[0].dt;
+    const unixTime1 = response.daily[0].dt;
  
-    console.log("this is the first day icon" + (JSON.stringify(response.daily[0].icon)));
     // console.log('date of the second day is: ', jsDate.toLocaleDateString("en-US"));
     // console.log('done with moment: ', moment.unix(unixTimeOne).format('MMMM Do'))
     // console.log(response.daily[1]);
+
+    // This is the code for day 1 of 5
     var extendedDay1 = $('<p></p>')
     var minTemp1 = $('<p></p>')
     var maxTemp1 = $('<p></p>')
     var dayIcon1 = $('<img>')
  
-    extendedDay1.text(moment.unix(unixTimeOne).format('MMMM Do'));
+    extendedDay1.text(moment.unix(unixTime1).format('MMMM Do'));
     // console.log(moment().format('MMMM Do'));
     minTemp1.text('Low Temp: ' + parseInt(response.daily[0].temp.min));
     maxTemp1.text('High Temp: ' + parseInt(response.daily[0].temp.max));
@@ -55,13 +89,14 @@ $.ajax({
     $('.extended').append(maxTemp1);
     $('.extended').append(minTemp1);
 
-    const unixTimeTwo = response.daily[1].dt;
+    // This is the code for day 2 of 5
+    const unixTime2 = response.daily[1].dt;
     var extendedDay2 = $('<p></p>')
     var minTemp2 = $('<p></p>')
     var maxTemp2 = $('<p></p>')
     var dayIcon2 = $('<img>')
  
-    extendedDay2.text(moment.unix(unixTimeTwo).format('MMMM Do'));
+    extendedDay2.text(moment.unix(unixTime2).format('MMMM Do'));
     minTemp2.text('Low Temp: ' + parseInt(response.daily[1].temp.min));
     maxTemp2.text('High Temp: ' + parseInt(response.daily[1].temp.max));
     dayIcon2.attr('src', dailyIcon);
@@ -71,6 +106,7 @@ $.ajax({
     $('.extended').append(maxTemp2);
     $('.extended').append(minTemp2);
 
+    // This is the code for day 3 of 5
     const unixTime3 = response.daily[2].dt;
     var extendedDay3 = $('<p></p>')
     var minTemp3 = $('<p></p>')
@@ -87,6 +123,7 @@ $.ajax({
     $('.extended').append(maxTemp3);
     $('.extended').append(minTemp3);
 
+    // This is the code for day 4 of 5
     const unixTime4 = response.daily[3].dt;
     var extendedDay4 = $('<p></p>')
     var minTemp4 = $('<p></p>')
@@ -103,6 +140,7 @@ $.ajax({
     $('.extended').append(maxTemp4);
     $('.extended').append(minTemp4);
 
+    // This is the code for day 5 of 5
     const unixTime5 = response.daily[4].dt;
     var extendedDay5 = $('<p></p>')
     var minTemp5 = $('<p></p>')
@@ -120,4 +158,4 @@ $.ajax({
     $('.extended').append(minTemp5);
 });
 });    
-    
+});    
