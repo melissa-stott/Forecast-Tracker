@@ -1,6 +1,6 @@
 body {
     background-image: url("seasons.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: inherit;
     background-size: 100%;
 }
@@ -8,4 +8,18 @@ body {
 .weatherDisplay {
     background-color: palevioletred;
     text-align: center;
+    font-family: 'Sofia', cursive;
+}
+
+.userInput {
+    padding-top: 20px;
+    padding-left: 0;
+    background-color: lavenderblush;
+    padding-bottom: 20px;
+}
+
+.col-4 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 100;
 }

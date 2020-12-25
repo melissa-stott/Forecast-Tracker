@@ -1,6 +1,6 @@
 var inputBox = $('<div class="userInput"></div>');
-var introText = $('<p>Please enter a city and state, separated by a comma.</p>');
-var userInput = $('<input class="input" type="text" placeholder="Portland, Oregon"></input>');
+var introText = $('<div class="col-4">Please enter a city and state, separated by a comma.</div><br>');
+var userInput = $('<input class="input" type="text" placeholder="City, State"></input>');
 var userSubmit = $('<button>Submit</button>');
 
 $('body').append(inputBox);
