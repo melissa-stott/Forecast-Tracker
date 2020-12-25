@@ -23,3 +23,29 @@ body {
     font-size: 18px;
     font-weight: 100;
 }
+
+.currentForecast {
+    /* position: fixed; */
+    left: 50%;
+}
+
+.dailyOutlook {
+    text-align: center;
+    font-size: 30px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: darkmagenta;
+    background-color: lavenderblush;
+    opacity: 0.8;
+    width: fit-content;
+}
+
+.extendedWeather {
+    bottom: 10%;
+    padding-bottom: 0;
+    background-color: lightblue;
+    border: 5px solid darkblue;
+    opacity: 0.8;
+    margin-right: 80%;
+    width: fit-content;
+}
