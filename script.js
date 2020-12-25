@@ -1,12 +1,12 @@
 var inputBox = $('<div class="userInput"></div>');
-var introText = $('<p class="howToStart">Please enter a city and state, separated by a comma.</p>');
+var introText = $('<p>Please enter a city and state, separated by a comma.</p>');
 var userInput = $('<input class="input" type="text" placeholder="Portland, Oregon"></input>');
 var userSubmit = $('<button>Submit</button>');
 
-$('.container').append(inputBox);
-$('.panel-heading').append(introText);
-$('.panel-block').append(userInput);
-$('.panel-block').append(userSubmit);
+$('body').append(inputBox);
+$('.userInput').append(introText);
+$('.userInput').append(userInput);
+$('.userInput').append(userSubmit);
 
 $(userSubmit).on('click', function(evt) {
     var cityState = $(userInput).val();
