@@ -72,7 +72,7 @@ $.ajax({
     // console.log(response.daily[1]);
 
     // This is the code for day 1 of 5
-    var dayResults1 = $('<div class="col-2"></div>')
+    var dayResults1 = $('<div class="col is-one-fifth"></div>')
     var extendedDay1 = $('<p></p>')
     var minTemp1 = $('<p></p>')
     var maxTemp1 = $('<p></p>')
@@ -92,7 +92,7 @@ $.ajax({
 
     // This is the code for day 2 of 5
     const unixTime2 = response.daily[1].dt;
-    var dayResults2 = $('<div class="col-2"></div>')
+    var dayResults2 = $('<div class="col is-one-fifth"></div>')
     var extendedDay2 = $('<p></p>')
     var minTemp2 = $('<p></p>')
     var maxTemp2 = $('<p></p>')
@@ -111,7 +111,7 @@ $.ajax({
 
     // This is the code for day 3 of 5
     const unixTime3 = response.daily[2].dt;
-    var dayResults3 = $('<div class="col-2"></div>')
+    var dayResults3 = $('<div class="col is-one-fifth"></div>')
     var extendedDay3 = $('<p></p>')
     var minTemp3 = $('<p></p>')
     var maxTemp3 = $('<p></p>')
@@ -130,7 +130,7 @@ $.ajax({
 
     // This is the code for day 4 of 5
     const unixTime4 = response.daily[3].dt;
-    var dayResults4 = $('<div class="col-2"></div>')
+    var dayResults4 = $('<div class="col is-one-fifth"></div>')
     var extendedDay4 = $('<p></p>')
     var minTemp4 = $('<p></p>')
     var maxTemp4 = $('<p></p>')
@@ -149,7 +149,7 @@ $.ajax({
 
     // This is the code for day 5 of 5
     const unixTime5 = response.daily[4].dt;
-    var dayResults5 = $('<div class="col-2"></div>')
+    var dayResults5 = $('<div class="col is-one-fifth"></div>')
     var extendedDay5 = $('<p></p>')
     var minTemp5 = $('<p></p>')
     var maxTemp5 = $('<p></p>')

@@ -25,8 +25,9 @@ body {
 }
 
 .currentForecast {
-    /* position: fixed; */
-    left: 50%;
+    position: relative;
+    left: 40%;
+    width: fit-content;
 }
 
 .dailyOutlook {
@@ -41,11 +42,9 @@ body {
 }
 
 .extendedWeather {
-    bottom: 10%;
+    margin-bottom: 0px;
     padding-bottom: 0;
     background-color: lightblue;
     border: 5px solid darkblue;
     opacity: 0.8;
-    margin-right: 80%;
-    width: fit-content;
 }
