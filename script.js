@@ -72,7 +72,7 @@ $.ajax({
     // console.log(response.daily[1]);
 
     // This is the code for day 1 of 5
-    var dayResults = $('<div class="col-2"></div>')
+    var dayResults1 = $('<div class="col-2"></div>')
     var extendedDay1 = $('<p></p>')
     var minTemp1 = $('<p></p>')
     var maxTemp1 = $('<p></p>')
@@ -84,14 +84,15 @@ $.ajax({
     maxTemp1.text('High Temp: ' + parseInt(response.daily[0].temp.max));
     dayIcon1.attr('src', dailyIcon);
     
-    $('.extendedWeather').append(dayResults);
-    $('.col-2').append(extendedDay1);
-    $('.col-2').append(dayIcon1);
-    $('.col-2').append(maxTemp1);
-    $('.col-2').append(minTemp1);
+    $('.extendedWeather').append(dayResults1);
+    $(dayResults1).append(extendedDay1);
+    $(dayResults1).append(dayIcon1);
+    $(dayResults1).append(maxTemp1);
+    $(dayResults1).append(minTemp1);
 
     // This is the code for day 2 of 5
     const unixTime2 = response.daily[1].dt;
+    var dayResults2 = $('<div class="col-2"></div>')
     var extendedDay2 = $('<p></p>')
     var minTemp2 = $('<p></p>')
     var maxTemp2 = $('<p></p>')
@@ -102,13 +103,15 @@ $.ajax({
     maxTemp2.text('High Temp: ' + parseInt(response.daily[1].temp.max));
     dayIcon2.attr('src', dailyIcon);
     
-    $('.col-2').append(extendedDay2);
-    $('.col-2').append(dayIcon2);
-    $('.col-2').append(maxTemp2);
-    $('.col-2').append(minTemp2);
+    $('.extendedWeather').append(dayResults2)
+    $(dayResults2).append(extendedDay2);
+    $(dayResults2).append(dayIcon2);
+    $(dayResults2).append(maxTemp2);
+    $(dayResults2).append(minTemp2);
 
     // This is the code for day 3 of 5
     const unixTime3 = response.daily[2].dt;
+    var dayResults3 = $('<div class="col-2"></div>')
     var extendedDay3 = $('<p></p>')
     var minTemp3 = $('<p></p>')
     var maxTemp3 = $('<p></p>')
@@ -119,13 +122,15 @@ $.ajax({
     maxTemp3.text('High Temp: ' + parseInt(response.daily[2].temp.max));
     dayIcon3.attr('src', dailyIcon);
     
-    $('.col-2').append(extendedDay3);
-    $('.col-2').append(dayIcon3);
-    $('.col-2').append(maxTemp3);
-    $('.col-2').append(minTemp3);
+    $('.extendedWeather').append(dayResults3)
+    $(dayResults3).append(extendedDay3);
+    $(dayResults3).append(dayIcon3);
+    $(dayResults3).append(maxTemp3);
+    $(dayResults3).append(minTemp3);
 
     // This is the code for day 4 of 5
     const unixTime4 = response.daily[3].dt;
+    var dayResults4 = $('<div class="col-2"></div>')
     var extendedDay4 = $('<p></p>')
     var minTemp4 = $('<p></p>')
     var maxTemp4 = $('<p></p>')
@@ -136,13 +141,15 @@ $.ajax({
     maxTemp4.text('High Temp: ' + parseInt(response.daily[3].temp.max));
     dayIcon4.attr('src', dailyIcon);
     
-    $('.col-2').append(extendedDay4);
-    $('.col-2').append(dayIcon4);
-    $('.col-2').append(maxTemp4);
-    $('.col-2').append(minTemp4);
+    $('.extendedWeather').append(dayResults4);
+    $(dayResults4).append(extendedDay4);
+    $(dayResults4).append(dayIcon4);
+    $(dayResults4).append(maxTemp4);
+    $(dayResults4).append(minTemp4);
 
     // This is the code for day 5 of 5
     const unixTime5 = response.daily[4].dt;
+    var dayResults5 = $('<div class="col-2"></div>')
     var extendedDay5 = $('<p></p>')
     var minTemp5 = $('<p></p>')
     var maxTemp5 = $('<p></p>')
@@ -153,10 +160,11 @@ $.ajax({
     maxTemp5.text('High Temp: ' + parseInt(response.daily[4].temp.max));
     dayIcon5.attr('src', dailyIcon);
     
-    $('.col-2').append(extendedDay5);
-    $('.col-2').append(dayIcon5);
-    $('.col-2').append(maxTemp5);
-    $('.col-2').append(minTemp5);
+    $('.extendedWeather').append(dayResults5)
+    $(dayResults5).append(extendedDay5);
+    $(dayResults5).append(dayIcon5);
+    $(dayResults5).append(maxTemp5);
+    $(dayResults5).append(minTemp5);
 });
 });    
 });    
